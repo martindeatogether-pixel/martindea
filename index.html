@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Para mi amor, Dea 💕</title>
+    <title>Untuk cintaku, Dea 💕</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Quicksand:wght@300;400;600&display=swap');
         
@@ -188,14 +188,6 @@
             box-shadow: 0 12px 30px rgba(255, 20, 147, 0.5);
         }
 
-        .hint {
-            text-align: center;
-            color: #ff69b4;
-            font-style: italic;
-            margin-top: 15px;
-            font-size: 1em;
-        }
-
         .wrong-message {
             text-align: center;
             color: #ff69b4;
@@ -214,12 +206,6 @@
             margin: 20px auto;
             font-weight: 600;
             box-shadow: 0 5px 15px rgba(255, 20, 147, 0.4);
-        }
-
-        .decorative-line {
-            height: 3px;
-            background: linear-gradient(90deg, transparent, #ff69b4, transparent);
-            margin: 30px 0;
         }
 
         .fullscreen-letter {
@@ -242,14 +228,8 @@
         }
 
         @keyframes fullscreenAppear {
-            from {
-                opacity: 0;
-                transform: scale(0);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
+            from { opacity: 0; transform: scale(0); }
+            to { opacity: 1; transform: scale(1); }
         }
 
         .letter-paper {
@@ -259,36 +239,28 @@
             height: 85%;
             border-radius: 20px;
             box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
-            padding: 60px;
+            padding: 40px;
             overflow-y: auto;
             position: relative;
             animation: paperUnfold 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
         }
 
         @keyframes paperUnfold {
-            0% {
-                transform: scale(0.1) rotateX(90deg);
-                opacity: 0;
-            }
-            100% {
-                transform: scale(1) rotateX(0deg);
-                opacity: 1;
-            }
+            0% { transform: scale(0.1) rotateX(90deg); opacity: 0; }
+            100% { transform: scale(1) rotateX(0deg); opacity: 1; }
         }
 
         .letter-line {
             font-family: 'Dancing Script', cursive;
-            font-size: 2.5em;
+            font-size: 2em;
             color: #ff1493;
             text-align: center;
-            margin: 30px 0;
+            margin: 20px 0;
             opacity: 0;
             animation: lineAppear 0.8s ease-out forwards;
         }
 
-        @keyframes lineAppear {
-            to { opacity: 1; }
-        }
+        @keyframes lineAppear { to { opacity: 1; } }
 
         .letter-line:nth-child(1) { animation-delay: 0.3s; }
         .letter-line:nth-child(2) { animation-delay: 0.6s; }
@@ -298,30 +270,11 @@
         .letter-line:nth-child(6) { animation-delay: 1.8s; }
         .letter-line:nth-child(7) { animation-delay: 2.1s; }
         .letter-line:nth-child(8) { animation-delay: 2.4s; }
-        .letter-line:nth-child(9) { animation-delay: 2.7s; }
-        .letter-line:nth-child(10) { animation-delay: 3s; }
-        .letter-line:nth-child(11) { animation-delay: 3.3s; }
-        .letter-line:nth-child(12) { animation-delay: 3.6s; }
-        .letter-line:nth-child(13) { animation-delay: 3.9s; }
-        .letter-line:nth-child(14) { animation-delay: 4.2s; }
-        .letter-line:nth-child(15) { animation-delay: 4.5s; }
 
         .letter-line.big {
-            font-size: 3.5em;
+            font-size: 3em;
             color: #ff69b4;
             font-weight: 700;
-            text-shadow: 3px 3px 6px rgba(255, 20, 147, 0.4);
-            margin: 50px 0;
-        }
-
-        .letter-line.medium {
-            font-size: 2em;
-            color: #d63384;
-        }
-
-        .letter-line.emoji {
-            font-size: 4em;
-            margin: 40px 0;
         }
 
         .continue-button {
@@ -338,72 +291,12 @@
             font-family: 'Quicksand', sans-serif;
             font-weight: 700;
             box-shadow: 0 10px 30px rgba(255, 20, 147, 0.5);
-            transition: all 0.3s;
             z-index: 10001;
             opacity: 0;
-            animation: buttonAppear 0.5s ease-out 5s forwards;
+            animation: buttonAppear 0.5s ease-out 4s forwards;
         }
 
-        @keyframes buttonAppear {
-            to { opacity: 1; }
-        }
-
-        .continue-button:hover {
-            background: linear-gradient(135deg, #ff69b4, #ff1493);
-            color: white;
-            transform: translateY(-5px) scale(1.05);
-        }
-
-        .sparkles {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-        }
-
-        .sparkle {
-            position: absolute;
-            font-size: 25px;
-            animation: sparkleFloat 3s ease-in-out infinite;
-        }
-
-        @keyframes sparkleFloat {
-            0%, 100% {
-                transform: translateY(0) rotate(0deg);
-                opacity: 0.6;
-            }
-            50% {
-                transform: translateY(-20px) rotate(180deg);
-                opacity: 1;
-            }
-        }
-
-        .floating-hearts {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 9997;
-        }
-
-        .celebration-heart {
-            position: absolute;
-            font-size: 30px;
-            animation: floatUp 3s ease-out forwards;
-        }
-
-        @keyframes floatUp {
-            0% {
-                opacity: 1;
-                transform: translateY(0) scale(0.5);
-            }
-            100% {
-                opacity: 0;
-                transform: translateY(-100vh) scale(0.8) rotate(360deg);
-            }
-        }
+        @keyframes buttonAppear { to { opacity: 1; } }
 
         .letter-overlay {
             display: none;
@@ -417,16 +310,6 @@
             backdrop-filter: blur(5px);
         }
 
-        .letter-overlay.show {
-            display: block;
-            animation: fadeIn 0.5s ease-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
         .letter-container {
             display: none;
             position: fixed;
@@ -436,298 +319,145 @@
             width: 95%;
             max-width: 900px;
             max-height: 90vh;
-            background: linear-gradient(180deg, #fffbfe 0%, #fff5f9 50%, #ffe9f3 100%);
-            padding: 60px 50px;
+            background: #fffbfe;
+            padding: 40px;
             border-radius: 30px;
             border: 6px double #ff69b4;
-            box-shadow: 0 30px 100px rgba(255, 20, 147, 0.7);
             z-index: 10501;
             overflow-y: auto;
         }
 
-        .letter-container.show {
-            display: block;
-            animation: letterUnfold 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-        }
-
-        @keyframes letterUnfold {
-            0% {
-                opacity: 0;
-                transform: translate(-50%, -50%) scale(0.3) rotateX(90deg);
-            }
-            100% {
-                opacity: 1;
-                transform: translate(-50%, -50%) scale(1) rotateX(0deg);
-            }
-        }
+        .letter-container.show, .letter-overlay.show { display: block; }
 
         .close-letter {
             position: absolute;
-            top: 15px;
-            right: 15px;
-            background: linear-gradient(135deg, #ff69b4, #ff1493);
-            color: white;
-            border: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            font-size: 1.5em;
-            cursor: pointer;
-            box-shadow: 0 5px 15px rgba(255, 20, 147, 0.4);
-            transition: all 0.3s;
-            z-index: 10502;
+            top: 15px; right: 15px;
+            background: #ff1493; color: white;
+            border: none; width: 40px; height: 40px;
+            border-radius: 50%; cursor: pointer;
         }
 
-        .close-letter:hover {
-            transform: rotate(90deg) scale(1.1);
-        }
+        .letter-header { font-family: 'Dancing Script', cursive; color: #ff1493; text-align: center; font-size: 2.5em; margin-bottom: 20px; }
+        .letter-content { line-height: 1.8; color: #6b3569; font-size: 1.1em; }
+        .letter-quote { font-style: italic; color: #d63384; padding: 15px; border-left: 5px solid #ff69b4; margin: 20px 0; background: #fff0f6; }
+        .letter-footer { text-align: right; font-family: 'Dancing Script', cursive; font-size: 2em; color: #ff69b4; margin-top: 30px; }
 
-        .letter-header {
-            font-family: 'Dancing Script', cursive;
-            font-size: 3.5em;
-            color: #ff1493;
-            text-align: center;
-            margin-bottom: 40px;
-            border-bottom: 4px solid #ffb3d9;
-            padding-bottom: 25px;
-            text-shadow: 2px 2px 4px rgba(255, 105, 180, 0.3);
-        }
-
-        .letter-content {
-            color: #6b3569;
-            font-size: 1.35em;
-            line-height: 2.2;
-            text-align: justify;
-            font-weight: 400;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.6);
-            border-radius: 20px;
-        }
-
-        .letter-content p {
-            margin-bottom: 30px;
-            text-indent: 40px;
-        }
-
-        .letter-content p:first-child {
-            font-size: 1.2em;
-            color: #ff1493;
-            font-weight: 600;
-            text-indent: 0;
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .letter-content strong {
-            color: #ff1493;
-            font-weight: 700;
-        }
-
-        .letter-quote {
-            background: linear-gradient(135deg, #fff0f6, #ffe4f1);
-            padding: 25px 30px;
-            margin: 35px 0;
-            border-left: 6px solid #ff69b4;
-            border-radius: 15px;
-            font-style: italic;
-            color: #d63384;
-            font-size: 1.1em;
-            box-shadow: 0 5px 20px rgba(255, 105, 180, 0.2);
-        }
-
-        .letter-footer {
-            text-align: right;
-            font-family: 'Dancing Script', cursive;
-            font-size: 2.5em;
-            color: #ff69b4;
-            margin-top: 50px;
-            padding-top: 30px;
-            border-top: 3px dashed #ffb3d9;
-        }
-
-        @media (max-width: 600px) {
-            .container {
-                padding: 30px 20px;
-            }
-            
-            h1 {
-                font-size: 2.5em;
-            }
-            
-            .ingredients-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .letter-line {
-                font-size: 1.8em;
-            }
-
-            .letter-line.big {
-                font-size: 2.5em;
-            }
-
-            .continue-button {
-                bottom: 20px;
-                right: 20px;
-                padding: 15px 30px;
-                font-size: 1.1em;
-            }
-
-            .letter-container {
-                padding: 40px 25px;
-            }
-
-            .letter-header {
-                font-size: 2.5em;
-            }
-
-            .letter-content {
-                font-size: 1.1em;
-            }
-        }
     </style>
 </head>
 <body>
     <div class="hearts-bg" id="heartsContainer"></div>
-    <div class="floating-hearts" id="floatingHearts"></div>
     
     <div class="fullscreen-letter" id="fullscreenLetter">
-        <div class="sparkles" id="sparkles"></div>
         <div class="letter-paper">
             <div class="letter-line emoji">💌</div>
-            <div class="letter-line big">Para mi Dea</div>
-            <div class="letter-line emoji">🌸</div>
-            <div class="letter-line">De Martin con todo mi amor</div>
-            <div class="letter-line medium">🇪🇸 ❤️ 🇮🇩</div>
-            <div class="letter-line emoji">✨</div>
-            <div class="letter-line big">Te Amo infinitamente</div>
-            <div class="letter-line medium">Aku mencintaimu tanpa batas</div>
-            <div class="letter-line emoji">💕</div>
-            <div class="letter-line">Meskipun ribuan kilometer memisahkan kita...</div>
+            <div class="letter-line big">Untuk Dea-ku</div>
+            <div class="letter-line">Dari Martin dengan seluruh cintaku</div>
+            <div class="letter-line big">Aku Mencintaimu Selamanya</div>
+            <div class="letter-line">Cintaku padamu tidak terbatas</div>
             <div class="letter-line">Cintaku melintasi samudra setiap hari</div>
-            <div class="letter-line emoji">💖</div>
             <div class="letter-line">Kamu adalah chef terbaik di hatiku</div>
-            <div class="letter-line">Setiap hidanganmu adalah karya seni</div>
-            <div class="letter-line emoji">🍳</div>
-            <div class="letter-line big">Eres mi todo</div>
+            <div class="letter-line big">Kamu adalah segalanya bagiku</div>
         </div>
         <button class="continue-button" onclick="showDetailedLetter()">Baca Surat Lengkap 💌</button>
     </div>
     
     <div class="letter-overlay" id="letterOverlay"></div>
-    
     <div class="letter-container" id="letterContainer">
         <button class="close-letter" onclick="closeLetter()">×</button>
-        <h2 class="letter-header">💌 Mi carta de amor para ti 💌</h2>
+        <h2 class="letter-header">💌 Surat Cintaku 💌</h2>
         <div class="letter-content">
-            <p>Mi amor más hermoso,</p>
-            
-            <p>Escribo estas palabras desde <strong>España</strong>, pero mi corazón vuela miles de kilómetros hasta <strong>Indonesia</strong>, hasta donde estás tú. La distancia física no puede separar lo que nuestras almas ya han unido. Cada noche miro el mismo cielo que tú, y sé que bajo esas mismas estrellas, tú también piensas en mí.</p>
-            
-            <p>Dea, necesito que sepas algo: <strong>Te amo</strong>. No es un amor cualquiera, no es un amor que se desvanece con la distancia o el tiempo. Es un amor profundo que hace cada día más hermoso solo porque sé que existes en este mundo.</p>
-            
-            <div class="letter-quote">
-                "El amor verdadero no conoce fronteras ni distancias. Solo conoce una verdad: lo afortunado que soy de tenerte."
-            </div>
-            
-            <p>¿Sabes qué es lo que más admiro de ti? Tu pasión por la cocina. Cada vez que me cuentas sobre una nueva receta, o cuando me envías fotos de tus creaciones, puedo sentir el amor que pones en cada movimiento. No solo cocinas comida, cariño. Creas memorias, deramas amor, haces arte. Eso es lo que eres: alguien que da amor en todo lo que hace.</p>
-            
-            <p>Y yo, aquí lejos en España, me siento tan afortunado de recibir ese amor. Aunque aún no puedo probar tu comida directamente, ya he sentido su sabor a través de tus historias, tu entusiasmo, la luz en tus ojos cuando hablas de lo que amas.</p>
-            
-            <p>Echo de menos tu sonrisa que ilumina mis días más oscuros. Echo de menos tu risa que hace desaparecer todas mis preocupaciones. Echo de menos tu voz suave pero cálida. Echo de menos tus abrazos que aún no he sentido pero he imaginado miles de veces. Echo de menos tus besos que esperan ser dados cuando finalmente nos encontremos.</p>
-            
-            <div class="letter-quote">
-                "Si pudiera recoger todas las estrellas del cielo y dártelas, aún no sería suficiente para mostrarte cuánto te amo."
-            </div>
-            
-            <p>Nuestras diferencias culturales no son barreras, son puentes que nos enriquecen. Tú me enseñas sobre <strong>Indonesia</strong>, su belleza, su cultura, su deliciosa comida. Y yo comparto contigo sobre <strong>España</strong>, el flamenco, la paella, la pasión que corre por nuestras venas. Juntos, no perdemos nuestra identidad, creamos algo nuevo, algo único, algo que solo nos pertenece a nosotros dos.</p>
-            
-            <p>¿Diferentes zonas horarias? Solo significa que puedo desearte buenos días y buenas noches dos veces. ¿Continentes diferentes? Solo hará que nuestro encuentro sea más especial. ¿Idiomas diferentes? El amor no necesita traducción, nuestros corazones hablan el mismo idioma.</p>
-            
-            <p>Quiero prometerte algo: <strong>Seguiré amándote</strong> con todo mi corazón, a través de cada desafío de esta distancia. Seguiré apoyando cada sueño que tengas. Seguiré siendo quien celebre cada uno de tus logros y quien te abrace, aunque sea virtualmente por ahora, en cada dificultad. Seguiré siendo la razón de tu sonrisa, como tú eres la razón de mi felicidad.</p>
-            
-            <p>Algún día, no habrá más pantallas que nos separen. Algún día, sentiré tu mano en la mía. Algún día, probaré tu comida sentado junto a ti. Algún día, nos despertaremos en la misma mañana, en el mismo lugar, para comenzar nuestro día juntos. Y hasta que ese día llegue, cada segundo que paso esperándote es un segundo que doy con alegría, porque vales la pena cada espera.</p>
-            
-            <div class="letter-quote">
-                "Eres mi hogar, aunque los océanos nos separen. Eres mi paz, aunque la distancia lo haga difícil. Eres mi futuro, y no puedo esperar a vivirlo contigo."
-            </div>
-            
-            <p><strong>Te amo, amor de mi vida.</strong> Eres más que mi chef favorita, eres mi amor verdadero, mi mejor amiga, la razón por la que creo en la magia. De España a Indonesia, de mi corazón al tuyo, te envío todo mi amor, todas mis esperanzas y cada oración hermosa para ti.</p>
-            
-            <p style="text-indent: 0; text-align: center; font-size: 1.3em; color: #ff1493; margin-top: 40px;"><strong>Te amo con toda mi alma. Aku mencintaimu dengan seluruh jiwaku. 💕</strong></p>
+            <p>Cintaku yang paling cantik, Dea,</p>
+            <p>Aku menulis kata-kata ini dari <strong>Spanyol</strong>, tapi hatiku terbang ribuan kilometer menuju <strong>Indonesia</strong>. Jarak fisik tidak akan bisa memisahkan apa yang telah disatukan oleh jiwa kita.</p>
+            <div class="letter-quote">"Cinta sejati tidak mengenal batas maupun jarak. Ia hanya mengenal satu kebenaran: betapa beruntungnya aku memilikimu."</div>
+            <p>Aku sangat mengagumi semangatmu dalam memasak. Kamu tidak hanya sekadar memasak makanan, sayang. Kamu menciptakan kenangan dan menuangkan kasih sayang di dalamnya. Suatu hari nanti, tidak akan ada lagi layar yang memisahkan kita. Aku akan menggenggam tanganmu dan mencicipi masakanmu sambil duduk di sampingmu.</p>
+            <p><strong>Aku mencintaimu dengan seluruh jiwaku. 💕</strong></p>
         </div>
-        <div class="letter-footer">Para siempre tuyo,<br>Martin 💕🇪🇸💕🇮🇩</div>
+        <div class="letter-footer">Selamanya milikmu,<br>Martin 💕🇪🇸💕🇮🇩</div>
     </div>
     
-    <div class="container">
+    <div class="container" id="mainContainer">
         <h1>🌸 Untuk Dea 🌸</h1>
-        <p class="subtitle">Cintaku dari Indonesia 💕</p>
+        <p class="subtitle">Cintaku dari jauh 💕</p>
         
         <div class="intro-section">
-            <p>Halo sayangku,</p>
-            <p>Aku telah menyiapkan sesuatu yang istimewa untukmu. Dari Spanyol ke Indonesia, hatiku menempuh ribuan kilometer hanya untuk bersamamu.</p>
-            <div class="love-badge">💖 Aku mencintaimu lebih dari yang bisa diungkapkan kata-kata 💖</div>
-            <p>Selesaikan permainan ini untuk menemukan surat cintaku ❤️</p>
+            <p>Halo sayangku, selesaikan permainan ini untuk menemukan surat cintaku ❤️</p>
+            <div class="love-badge">💖 Aku mencintaimu 💖</div>
         </div>
-
-        <div class="decorative-line"></div>
 
         <div class="game-section">
             <h2 class="game-title">🍳 Permainan Cinta Dea 🍳</h2>
-            
             <div class="recipe-puzzle">
-                <p class="puzzle-description">
-                    Chef favoritku! 👩‍🍳<br>
-                    Pilih SEMUA hal yang aku cintai darimu:<br>
-                    <strong>"Semua yang kamu miliki"</strong>
-                </p>
-                
-                <div class="ingredients-grid">
-                    <div class="ingredient-card" data-ingredient="smile">
-                        <div class="ingredient-emoji">😊</div>
-                        <div class="ingredient-name">Senyummu</div>
+                <p class="puzzle-description">Pilih SEMUA hal yang aku cintai darimu:</p>
+                <div class="ingredients-grid" id="ingredientsGrid">
                     </div>
-                    <div class="ingredient-card" data-ingredient="cooking">
-                        <div class="ingredient-emoji">🍜</div>
-                        <div class="ingredient-name">Masakanmu</div>
-                    </div>
-                    <div class="ingredient-card" data-ingredient="eyes">
-                        <div class="ingredient-emoji">👀</div>
-                        <div class="ingredient-name">Matamu</div>
-                    </div>
-                    <div class="ingredient-card" data-ingredient="heart">
-                        <div class="ingredient-emoji">💖</div>
-                        <div class="ingredient-name">Hatimu</div>
-                    </div>
-                    <div class="ingredient-card" data-ingredient="laugh">
-                        <div class="ingredient-emoji">😂</div>
-                        <div class="ingredient-name">Tawamu</div>
-                    </div>
-                    <div class="ingredient-card" data-ingredient="hug">
-                        <div class="ingredient-emoji">🤗</div>
-                        <div class="ingredient-name">Pelukanmu</div>
-                    </div>
-                    <div class="ingredient-card" data-ingredient="voice">
-                        <div class="ingredient-emoji">🎵</div>
-                        <div class="ingredient-name">Suaramu</div>
-                    </div>
-                    <div class="ingredient-card" data-ingredient="kiss">
-                        <div class="ingredient-emoji">💋</div>
-                        <div class="ingredient-name">Ciumanmu</div>
-                    </div>
-                </div>
-                
                 <button class="check-button" onclick="checkAnswer()">Temukan suratku 💌</button>
-                <p class="hint">💡 Petunjuk: Aku mencintai SEMUA darimu, setiap detail!</p>
-                <p class="wrong-message" id="wrongMessage">Hampir! Coba lagi sayangku 💕</p>
+                <p class="wrong-message" id="wrongMessage">Hampir benar! Coba lagi sayangku 💕 (Pilih semuanya ya!)</p>
             </div>
         </div>
     </div>
 
     <script>
-        const correctAnswers = ['smile', 'cooking', 'eyes', 'heart', 'laugh', 'hug', 'voice', 'kiss'];
-        let selectedIngredients = [];
+        const ingredients = [
+            { id: 'smile', name: 'Senyummu', emoji: '😊' },
+            { id: 'cooking', name: 'Masakanmu', emoji: '🍜' },
+            { id: 'eyes', name: 'Matamu', emoji: '👀' },
+            { id: 'heart', name: 'Hatimu', emoji: '💖' },
+            { id: 'laugh', name: 'Tawamu', emoji: '😂' },
+            { id: 'hug', name: 'Pelukanmu', emoji: '🤗' },
+            { id: 'voice', name: 'Suaramu', emoji: '🎵' },
+            { id: 'kiss', name: 'Ciumanmu', emoji: '💋' }
+        ];
+
+        let selected = new Set();
+
+        const grid = document.getElementById('ingredientsGrid');
+        ingredients.forEach(item => {
+            const card = document.createElement('div');
+            card.className = 'ingredient-card';
+            card.innerHTML = `<div class="ingredient-emoji">${item.emoji}</div><div class="ingredient-name">${item.name}</div>`;
+            card.onclick = () => {
+                card.classList.toggle('selected');
+                if (selected.has(item.id)) selected.delete(item.id);
+                else selected.add(item.id);
+            };
+            grid.appendChild(card);
+        });
 
         function createHearts() {
             const container = document.getElementById('heartsContainer');
-            const hearts = ['💕', '💖', '💗', '💓', '💝', '
+            for(let i=0; i<15; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.innerHTML = '❤️';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.top = Math.random() * 100 + 'vh';
+                heart.style.animationDelay = Math.random() * 5 + 's';
+                container.appendChild(heart);
+            }
+        }
+
+        function checkAnswer() {
+            if (selected.size === ingredients.length) {
+                document.getElementById('fullscreenLetter').classList.add('show');
+                document.getElementById('mainContainer').style.display = 'none';
+            } else {
+                const msg = document.getElementById('wrongMessage');
+                msg.style.display = 'block';
+                setTimeout(() => msg.style.display = 'none', 3000);
+            }
+        }
+
+        function showDetailedLetter() {
+            document.getElementById('letterOverlay').classList.add('show');
+            document.getElementById('letterContainer').classList.add('show');
+        }
+
+        function closeLetter() {
+            document.getElementById('letterOverlay').classList.remove('show');
+            document.getElementById('letterContainer').classList.remove('show');
+        }
+
+        createHearts();
+    </script>
+</body>
+</html>
