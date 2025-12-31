@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untuk cintaku, Dea 💕</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Quicksand:wght@300;400;600&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(135deg, #ffeef8 0%, #ffe0f0 25%, #ffd4e8 50%, #ffc4e0 75%, #ffb3d9 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 40px 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        .hearts-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            opacity: 0.3;
+            animation: float 6s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 30px;
+            padding: 50px;
+            max-width: 800px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(255, 105, 180, 0.3);
+            position: relative;
+            z-index: 2;
+            border: 3px solid #ffb3d9;
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            color: #ff69b4;
+            text-align: center;
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(255, 105, 180, 0.3);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #ff8fab;
+            font-size: 1.3em;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        .intro-section {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 25px;
+            background: linear-gradient(135deg, #fff0f6, #ffe4f1);
+            border-radius: 20px;
+            border: 2px dashed #ffb3d9;
+        }
+
+        .intro-section p {
+            color: #d63384;
+            font-size: 1.2em;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .game-section {
+            margin-top: 30px;
+        }
+
+        .game-title {
+            font-family: 'Dancing Script', cursive;
+            color: #ff1493;
+            font-size: 2em;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .recipe-puzzle {
+            background: linear-gradient(135deg, #fff5f9, #ffe9f3);
+            padding: 30px;
+            border-radius: 20px;
+            border: 3px solid #ffb3d9;
+            margin-bottom: 25px;
+        }
+
+        .puzzle-description {
+            text-align: center;
+            color: #d63384;
+            font-size: 1.1em;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+
+        .ingredients-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .ingredient-card {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 3px solid #ffc4e0;
+            position: relative;
+        }
+
+        .ingredient-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 105, 180, 0.3);
+            border-color: #ff69b4;
+        }
+
+        .ingredient-card.selected {
+            background: linear-gradient(135deg, #ff69b4, #ff85c0);
+            color: white;
+            border-color: #ff1493;
+            transform: scale(1.05);
+        }
+
+        .ingredient-emoji {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .ingredient-name {
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+
+        .check-button {
+            background: linear-gradient(135deg, #ff69b4, #ff1493);
+            color: white;
+            border: none;
+            padding: 18px 45px;
+            font-size: 1.2em;
+            border-radius: 50px;
+            cursor: pointer;
+            display: block;
+            margin: 25px auto;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 600;
+            box-shadow: 0 8px 20px rgba(255, 20, 147, 0.4);
+            transition: all 0.3s;
+        }
+
+        .check-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(255, 20, 147, 0.5);
+        }
+
+        .check-button:active {
+            transform: translateY(0);
+        }
+
+        .hint {
+            text-align: center;
+            color: #ff69b4;
+            font-style: italic;
+            margin-top: 15px;
+            font-size: 1em;
+        }
+
+        .wrong-message {
+            text-align: center;
+            color: #ff69b4;
+            font-size: 1.1em;
+            margin-top: 15px;
+            font-weight: 600;
+            display: none;
+        }
+
+        .birthday-badge {
+            background: linear-gradient(135deg, #ff69b4, #ff1493);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 30px;
+            display: inline-block;
+            margin: 20px auto;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(255, 20, 147, 0.4);
+        }
+
+        .decorative-line {
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #ff69b4, transparent);
+            margin: 30px 0;
+        }
+
+        /* Fullscreen Letter */
+        .fullscreen-letter {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #ff69b4 0%, #ff1493 50%, #ff69b4 100%);
+            z-index: 10000;
+            overflow: hidden;
+        }
+
+        .fullscreen-letter.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: fullscreenAppear 1s ease-out;
+        }
+
+        @keyframes fullscreenAppear {
+            from {
+                opacity: 0;
+                transform: scale(0);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .envelope-animation {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .letter-paper {
+            background: white;
+            width: 90%;
+            max-width: 1000px;
+            height: 85%;
+            border-radius: 20px;
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
+            padding: 60px;
+            overflow-y: auto;
+            position: relative;
+            animation: paperUnfold 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+            transform-origin: center;
+        }
+
+        @keyframes paperUnfold {
+            0% {
+                transform: scale(0.1) rotateX(90deg) rotateY(45deg);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(0.6) rotateX(45deg) rotateY(20deg);
+                opacity: 0.7;
+            }
+            100% {
+                transform: scale(1) rotateX(0deg) rotateY(0deg);
+                opacity: 1;
+            }
+        }
+
+        .letter-paper::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        .letter-paper::-webkit-scrollbar-track {
+            background: #ffe4f1;
+            border-radius: 10px;
+        }
+
+        .letter-paper::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #ff69b4, #ff1493);
+            border-radius: 10px;
+        }
+
+        .letter-line {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5em;
+            color: #ff1493;
+            text-align: center;
+            margin: 30px 0;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: lineAppear 0.8s ease-out forwards;
+        }
+
+        @keyframes lineAppear {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .letter-line:nth-child(1) { animation-delay: 0.3s; }
+        .letter-line:nth-child(2) { animation-delay: 0.6s; }
+        .letter-line:nth-child(3) { animation-delay: 0.9s; }
+        .letter-line:nth-child(4) { animation-delay: 1.2s; }
+        .letter-line:nth-child(5) { animation-delay: 1.5s; }
+        .letter-line:nth-child(6) { animation-delay: 1.8s; }
+        .letter-line:nth-child(7) { animation-delay: 2.1s; }
+        .letter-line:nth-child(8) { animation-delay: 2.4s; }
+        .letter-line:nth-child(9) { animation-delay: 2.7s; }
+        .letter-line:nth-child(10) { animation-delay: 3s; }
+        .letter-line:nth-child(11) { animation-delay: 3.3s; }
+        .letter-line:nth-child(12) { animation-delay: 3.6s; }
+        .letter-line:nth-child(13) { animation-delay: 3.9s; }
+        .letter-line:nth-child(14) { animation-delay: 4.2s; }
+        .letter-line:nth-child(15) { animation-delay: 4.5s; }
+        .letter-line:nth-child(16) { animation-delay: 4.8s; }
+        .letter-line:nth-child(17) { animation-delay: 5.1s; }
+
+        .letter-line.big {
+            font-size: 3.5em;
+            color: #ff69b4;
+            font-weight: 700;
+            text-shadow: 3px 3px 6px rgba(255, 20, 147, 0.4);
+            margin: 50px 0;
+        }
+
+        .letter-line.medium {
+            font-size: 2em;
+            color: #d63384;
+        }
+
+        .letter-line.emoji {
+            font-size: 4em;
+            margin: 40px 0;
+        }
+
+        .continue-button {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            background: white;
+            color: #ff1493;
+            border: 4px solid #ff1493;
+            padding: 20px 40px;
+            font-size: 1.3em;
+            border-radius: 50px;
+            cursor: pointer;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
+            box-shadow: 0 10px 30px rgba(255, 20, 147, 0.5);
+            transition: all 0.3s;
+            z-index: 10001;
+            opacity: 0;
+            animation: buttonAppear 0.5s ease-out 5.5s forwards;
+        }
+
+        @keyframes buttonAppear {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .continue-button:hover {
+            background: linear-gradient(135deg, #ff69b4, #ff1493);
+            color: white;
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(255, 20, 147, 0.7);
+        }
+
+        .sparkles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .sparkle {
+            position: absolute;
+            font-size: 25px;
+            animation: sparkleFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes sparkleFloat {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0.6;
+            }
+            50% {
+                transform: translateY(-20px) rotate(180deg);
+                opacity: 1;
+            }
+        }
+
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9997;
+        }
+
+        .celebration-heart {
+            position: absolute;
+            font-size: 30px;
+            animation: floatUp 3s ease-out forwards;
+            opacity: 0;
+        }
+
+        @keyframes floatUp {
+            0% {
+                opacity: 1;
+                transform: translateY(0) scale(0.5) rotate(0deg);
+            }
+            50% {
+                opacity: 0.8;
+                transform: translateY(-50vh) scale(1.2) rotate(180deg);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-100vh) scale(0.8) rotate(360deg);
+            }
+        }
+
+        /* Detailed Letter Modal */
+        .letter-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 10500;
+            backdrop-filter: blur(5px);
+        }
+
+        .letter-overlay.show {
+            display: block;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .letter-container {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 95%;
+            max-width: 900px;
+            max-height: 90vh;
+            background: linear-gradient(180deg, #fffbfe 0%, #fff5f9 50%, #ffe9f3 100%);
+            padding: 60px 50px;
+            border-radius: 30px;
+            border: 6px double #ff69b4;
+            box-shadow: 0 30px 100px rgba(255, 20, 147, 0.7), inset 0 0 30px rgba(255, 182, 193, 0.3);
+            z-index: 10501;
+            overflow-y: auto;
+        }
+
+        .letter-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: linear-gradient(135deg, rgba(255, 105, 180, 0.15), rgba(255, 182, 193, 0.15));
+            border-radius: 30px 30px 0 0;
+            border-bottom: 3px dashed #ffb3d9;
+        }
+
+        .letter-container.show {
+            display: block;
+            animation: letterUnfold 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        @keyframes letterUnfold {
+            0% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0.3) rotateX(90deg) rotateZ(-10deg);
+            }
+            50% {
+                opacity: 0.5;
+                transform: translate(-50%, -50%) scale(0.7) rotateX(45deg) rotateZ(-5deg);
+            }
+            100% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1) rotateX(0deg) rotateZ(0deg);
+            }
+        }
+
+        .close-letter {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, #ff69b4, #ff1493);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.5em;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(255, 20, 147, 0.4);
+            transition: all 0.3s;
+            z-index: 10502;
+        }
+
+        .close-letter:hover {
+            transform: rotate(90deg) scale(1.1);
+            box-shadow: 0 8px 20px rgba(255, 20, 147, 0.6);
+        }
+
+        .letter-container::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .letter-container::-webkit-scrollbar-track {
+            background: #ffe4f1;
+            border-radius: 10px;
+        }
+
+        .letter-container::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #ff69b4, #ff1493);
+            border-radius: 10px;
+        }
+
+        .letter-header {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5em;
+            color: #ff1493;
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 4px solid #ffb3d9;
+            padding-bottom: 25px;
+            text-shadow: 2px 2px 4px rgba(255, 105, 180, 0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .letter-header::after {
+            content: '💕';
+            position: absolute;
+            left: 50%;
+            bottom: -20px;
+            transform: translateX(-50%);
+            background: white;
+            padding: 0 15px;
+            font-size: 0.7em;
+        }
+
+        .letter-content {
+            color: #6b3569;
+            font-size: 1.35em;
+            line-height: 2.2;
+            text-align: justify;
+            font-weight: 400;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 20px;
+            border: 2px solid rgba(255, 179, 217, 0.3);
+        }
+
+        .letter-content p {
+            margin-bottom: 30px;
+            text-indent: 40px;
+            position: relative;
+        }
+
+        .letter-content p:first-child {
+            font-size: 1.2em;
+            color: #ff1493;
+            font-weight: 600;
+            text-indent: 0;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .letter-content strong {
+            color: #ff1493;
+            font-weight: 700;
+        }
+
+        .letter-quote {
+            background: linear-gradient(135deg, #fff0f6, #ffe4f1);
+            padding: 25px 30px;
+            margin: 35px 0;
+            border-left: 6px solid #ff69b4;
+            border-radius: 15px;
+            font-style: italic;
+            color: #d63384;
+            font-size: 1.1em;
+            box-shadow: 0 5px 20px rgba(255, 105, 180, 0.2);
+        }
+
+        .letter-footer {
+            text-align: right;
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5em;
+            color: #ff69b4;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 3px dashed #ffb3d9;
+            text-shadow: 1px 1px 3px rgba(255, 105, 180, 0.3);
+        }
+
+        .letter-date {
+            text-align: center;
+            font-size: 1.1em;
+            color: #ff8fab;
+            margin-top: 20px;
+            font-style: italic;
+            font-weight: 600;
+        }
+
+        .decorative-corner {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            opacity: 0.4;
+        }
+
+        .decorative-corner.top-left {
+            top: 20px;
+            left: 20px;
+            border-top: 4px solid #ff69b4;
+            border-left: 4px solid #ff69b4;
+            border-radius: 15px 0 0 0;
+        }
+
+        .decorative-corner.top-right {
+            top: 20px;
+            right: 20px;
+            border-top: 4px solid #ff69b4;
+            border-right: 4px solid #ff69b4;
+            border-radius: 0 15px 0 0;
+        }
+
+        .decorative-corner.bottom-left {
+            bottom: 20px;
+            left: 20px;
+            border-bottom: 4px solid #ff69b4;
+            border-left: 4px solid #ff69b4;
+            border-radius: 0 0 0 15px;
+        }
+
+        .decorative-corner.bottom-right {
+            bottom: 20px;
+            right: 20px;
+            border-bottom: 4px solid #ff69b4;
+            border-right: 4px solid #ff69b4;
+            border-radius: 0 0 15px 0;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 2.5em;
+            }
+            
+            .ingredients-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .letter-line {
+                font-size: 1.8em;
+            }
+
+            .letter-line.big {
+                font-size: 2.5em;
+            }
+
+            .letter-line.emoji {
+                font-size: 3em;
+            }
+
+            .continue-button {
+                bottom: 20px;
+                right: 20px;
+                padding: 15px 30px;
+                font-size: 1.1em;
+            }
+
+            .letter-paper {
+                padding: 40px 20px;
+            }
+
+            .letter-container {
+                padding: 40px 25px;
+            }
+
+            .letter-header {
+                font-size: 2.5em;
+            }
+
+            .letter-content {
+                font-size: 1.1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hearts-bg" id="heartsContainer"></div>
+    <div class="floating-hearts" id="floatingHearts"></div>
+    
+    <div class="fullscreen-letter" id="fullscreenLetter">
+        <div class="sparkles" id="sparkles"></div>
+        <div class="envelope-animation">
+            <div class="letter-paper">
+                <div class="letter-line emoji">💌</div>
+                <div class="letter-line big">Untuk Dea-ku</div>
+                <div class="letter-line emoji">🌸</div>
+                <div class="letter-line">Dari Martin dengan cinta yang tak terbatas</div>
+                <div class="letter-line medium">🇪🇸 ❤️ 🇮🇩</div>
+                <div class="letter-line emoji">✨</div>
+                <div class="letter-line big">Selamat Ulang Tahun Sayangku</div>
+                <div class="letter-line medium">3 Maret 2025</div>
+                <div class="letter-line emoji">🎂</div>
+                <div class="letter-line">Meskipun ribuan kilometer memisahkan kita...</div>
+                <div class="letter-line">Cintaku untukmu melintasi samudra setiap hari</div>
+                <div class="letter-line emoji">💕</div>
+                <div class="letter-line">Kamu adalah chef terbaik di hatiku</div>
+                <div class="letter-line">Setiap hidanganmu adalah karya seni cinta</div>
+                <div class="letter-line emoji">🍳</div>
+                <div class="letter-line big">Te amo con todo mi corazón</div>
+                <div class="letter-line medium">Aku mencintaimu dengan seluruh jiwaku</div>
+            </div>
+        </div>
+        <button class="continue-button" onclick="showDetailedLetter()">Baca Surat Lengkap 💌</button>
+    </div>
+    
+    <div class="letter-overlay" id="letterOverlay"></div>
+    
+    <div class="letter-container" id="letterContainer">
+        <div class="decorative-corner top-left"></div>
+        <div class="decorative-corner top-right"></div>
+        <div class="decorative-corner bottom-left"></div>
+        <div class="decorative-corner bottom-right"></div>
+        <button class="close-letter" onclick="closeLetter()">×</button>
+        <h2 class="letter-header">💌 Surat untuk Dea-ku 💌</h2>
+        <div class="letter-content">
+            <p>Sayangku yang paling cantik,</p>
+            
+            <p>Saat aku menulis kata-kata ini dari <strong>Spanyol</strong>, hatiku terbang melintasi lautan menuju <strong>Indonesia</strong>, ke tempatmu berada. Ribuan kilometer memisahkan kita secara fisik, tetapi tidak ada jarak yang bisa memisahkan jiwa kita yang sudah terikat begitu erat. Setiap malam aku menatap langit yang sama denganmu, dan aku tahu bahwa di bawah bintang-bintang yang sama, kamu juga memikirkanku.</p>
+            
+            <p>Dea, hari ini adalah hari istimewa. <strong>3 Maret</strong>, hari ketika dunia diberkati dengan kehadiranmu. Hari ketika seorang malaikat lahir di Indonesia, yang suatu hari nanti akan mencuri hatiku sepenuhnya. Aku berharap bisa berada di sana, memelukmu, mencium keningmu, dan menyanyikan lagu ulang tahun sambil melihat senyum indahmu. Tapi meskipun aku tidak bisa berada di sana secara fisik, percayalah bahwa setiap detak jantungku hari ini adalah untuk merayakanmu.</p>
+            
+            <div class="letter-quote">
+                "Cinta sejati tidak mengenal batas jarak, tidak mengenal perbedaan waktu. Cinta sejati hanya mengenal satu hal: betapa beruntungnya aku memilikimu."
+            </div>
+            
+            <p>Kamu tahu apa yang paling aku kagumi darimu? Passionmu dalam memasak. Setiap kali kamu menceritakan tentang resep baru yang kamu coba, atau ketika kamu mengirimkan foto hidangan yang kamu buat, aku bisa merasakan cinta yang kamu tuangkan ke dalam setiap gerakan tanganmu. Kamu tidak hanya memasak makanan, sayang. Kamu menciptakan kenangan, kamu menuangkan cinta, kamu membuat seni yang bisa dinikmati semua indera. Itulah siapa kamu—seseorang yang memberikan cinta dalam segala yang kamu lakukan.</p>
+            
+            <p>Dan aku, yang jauh di sini di Spanyol, merasa sangat beruntung menjadi salah satu penerima cinta itu. Meskipun aku belum bisa mencicipi masakanmu secara langsung, aku sudah merasakan kelezatannya melalui cerita-ceritamu, melalui semangatmu, melalui cahaya di matamu ketika kamu berbicara tentang apa yang kamu cintai.</p>
+            
+            <p>Aku merindukan senyummu yang bisa mencerahkan hari tergelapku. Aku merindukan tawamu yang membuat semua kekhawatiranku menghilang. Aku merindukan cara kamu berbicara, dengan suaramu yang lembut namun penuh kehangatan. Aku merindukan pelukanmu yang belum pernah aku rasakan tapi sudah aku bayangkan ribuan kali. Aku merindukan ciumanmu yang masih menunggu untuk diberikan ketika kita akhirnya bertemu.</p>
+            
+            <div class="letter-quote">
+                "Jika aku bisa mengumpulkan semua bintang di langit dan memberikannya padamu, itu masih tidak akan cukup untuk menunjukkan betapa besar cintaku."
+            </div>
+            
+            <p>Sayang, perbedaan budaya kita bukan penghalang—itu adalah jembatan yang membuat kita lebih kaya. Kamu mengajariku tentang <strong>Indonesia</strong>, tentang keindahan budayamu, tentang makanan-makanan lezat dari negaramu. Dan aku berbagi denganmu tentang <strong>Spanyol</strong>, tentang flamenco, tentang paella, tentang passion yang mengalir dalam darah kami. Bersama-sama, kita tidak kehilangan identitas kita—kita menciptakan sesuatu yang baru, sesuatu yang unik, sesuatu yang hanya milik kita berdua.</p>
+            
+            <p>Zona waktu yang berbeda? Itu hanya berarti aku punya kesempatan untuk mengucapkan selamat pagi dan selamat malam kepadamu dua kali. Benua yang berbeda? Itu hanya membuat pertemuan kita nanti akan terasa lebih istimewa. Bahasa yang berbeda? Cinta tidak membutuhkan terjemahan—hati kita berbicara dalam bahasa yang sama.</p>
+            
+            <p>Di ulang tahunmu yang spesial ini, aku ingin berjanji padamu: <strong>Aku akan terus mencintaimu</strong> dengan sepenuh hatiku, melalui setiap tantangan jarak jauh ini. Aku akan terus mendukung setiap mimpi yang kamu punya. Aku akan terus menjadi orang yang merayakan setiap keberhasilanmu dan yang akan memelukmu meskipun secara virtual untuk saat ini di setiap kesulitanmu. Aku akan terus menjadi alasan senyummu, seperti kamu menjadi alasan kebahagiaanku.</p>
+            
+            <p>Suatu hari nanti, tidak akan ada lagi layar yang memisahkan kita. Suatu hari nanti, aku akan merasakan tanganmu di tanganku. Suatu hari nanti, aku akan mencicipi masakanmu sambil duduk di sebelahmu. Suatu hari nanti, kita akan bangun di pagi hari yang sama, di tempat yang sama, untuk memulai hari kita bersama-sama. Dan sampai hari itu tiba, setiap detik yang aku habiskan menunggumu adalah detik yang dengan senang hati aku berikan, karena kamu sangat berharga untuk ditunggu.</p>
+            
+            <div class="letter-quote">
+                "Kamu adalah rumahku, meskipun kita terpisah oleh samudra. Kamu adalah damai-ku, meskipun jarak membuat segalanya sulit. Kamu adalah masa depan-ku, dan aku tidak sabar untuk menjalaninya bersamamu."
+            </div>
+            
+            <p><strong>Selamat ulang tahun, cinta hidupku.</strong> Semoga tahun ini memberimu semua kebahagiaan yang kamu layak dapatkan—dan percayalah, kamu layak mendapatkan seluruh dunia. Semoga setiap mimpimu menjadi kenyataan. Semoga setiap hari membawa senyum ke wajah cantikmu. Semoga passion-mu dalam memasak terus berkembang dan membawamu ke tempat-tempat menakjubkan. Dan semoga cinta kita terus tumbuh lebih kuat setiap harinya.</p>
+            
+            <p>Kamu bukan hanya chef favoritku—kamu adalah cinta sejatiku, sahabat terbaikku, alasan aku percaya pada keajaiban. Dari Spanyol ke Indonesia, dari hatiku ke hatimu, aku mengirimkan seluruh cintaku, semua harapan terbaikku, dan setiap doa indah untuk hari spesialmu.</p>
+            
+            <p style="text-indent: 0; text-align: center; font-size: 1.3em; color: #ff1493; margin-top: 40px;"><strong>Te amo, sayang. Aku mencintaimu dengan seluruh jiwaku. 💕</strong></p>
+        </div>
+        <div class="letter-date">📅 3 Maret 2025 - Hari Istimewamu 🎂</div>
+        <div class="letter-footer">Selamanya milikmu,<br>Martin 💕🇪🇸💕🇮🇩</div>
+    </div>
+    
+    <div class="container">
+        <h1>🌸 Untuk Dea 🌸</h1>
+        <p class="subtitle">Cintaku dari Indonesia 💕</p>
+        
+        <div class="intro-section">
+            <p>Halo sayangku,</p>
+            <p>Aku telah menyiapkan sesuatu yang istimewa untukmu. Dari Spanyol ke Indonesia, hatiku menempuh ribuan kilometer hanya untuk bersamamu.</p>
+            <div class="birthday-badge">🎂 Selamat Ulang Tahun sayangku - 3 Maret 🎂</div>
+            <p>Selesaikan permainan ini untuk menemukan surat cintaku ❤️</p>
+        </div>
+
+        <div class="decorative-line"></div>
+
+        <div class="game-section">
+            <h2 class="game-title">🍳 Permainan Cinta Dea 🍳</h2>
+            
+            <div class="recipe-puzzle">
+                <p class="puzzle-description">
+                    Chef favoritku! 👩‍🍳<br>
+                    Pilih 5 bahan yang membentuk resep favoritku:<br>
+                    <strong>"Cintamu Yang Sempurna"</strong>
+                </p>
+                
+                <div class="ingredients-grid">
+                    <div class="ingredient-card" data-ingredient="smile">
+                        <div class="ingredient-emoji">😊</div>
+                        <div class="ingredient-name">Senyummu</div>
+                    </div>
+                    <div class="ingredient-card" data-ingredient="cooking">
+                        <div class="ingredient-emoji">🍜</div>
+                        <div class="ingredient-name">Masakanmu</div>
+                    </div>
+                    <div class="ingredient-card" data-ingredient="eyes">
+                        <div class="ingredient-emoji">👀</div>
+                        <div class="ingredient-name">Matamu</div>
+                    </div>
+                    <div class="ingredient-card" data-ingredient="heart">
+                        <div class="ingredient-emoji">💝</div>
+                        <div class="ingredient-name">Hatimu</div>
+                    </div>
+                    <div class="ingredient-card" data-ingredient="laugh">
+                        <div class="ingredient-emoji">😂</div>
+                        <div class="ingredient-name">Tawamu</div>
+                    </div>
+                    <div class="ingredient-card" data-ingredient="hug">
+                        <div class="ingredient-emoji">🤗</div>
+                        <div class="ingredient-name">Pelukanmu</div>
+                    </div>
+                    <div class="ingredient-card" data-ingredient="voice">
+                        <div class="ingredient-emoji">🎵</div>
+                        <div class="ingredient-name">Suaramu</div>
+                    </div>
+                    <div class="ingredient-card" data-ingredient="kiss">
+                        <div class="ingredient-emoji">💋</div>
+                        <div class="ingredient-name">Ciumanmu</div>
+                    </div>
+                </div>
+                
+                <button class="check-button" onclick="checkAnswer()">Temukan suratku 💌</button>
+                <p class="hint">💡 Petunjuk: Pikirkan tentang hal-hal yang paling aku cintai darimu setiap hari...</p>
+                <p class="wrong-message" id="wrongMessage">Hampir! Coba kombinasi lain sayangku 💕</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const correctAnswers = ['smile', 'cooking', 'heart', 'laugh', 'kiss'];
+        let selectedIngredients = [];
+
+        function createHearts() {
+            const container = document.getElementById('heartsContainer');
+            const hearts = ['💕', '💖', '💗', '💝', '💓', '🌸', '🌺'];
+            
+            for (let i = 0; i < 20; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.top = Math.random() * 100 + '%';
+                heart.style.animationDelay = Math.random() * 3 + 's';
+                heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
+                container.appendChild(heart);
+            }
+        }
+
+        document.querySelectorAll('.ingredient-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const ingredient = this.dataset.ingredient;
+                
+                if (this.classList.contains('selected')) {
+                    this.classList.remove('selected');
+                    selectedIngredients = selectedIngredients.filter(i => i !== ingredient);
+                } else {
+                    if (selectedIngredients.length < 5) {
+                        this.classList.add('selected');
+                        selectedIngredients.push(ingredient);
+                    }
+                }
+            });
+        });
+
+        function checkAnswer() {
+            const wrongMessage = document.getElementById('wrongMessage');
+            const fullscreenLetter = document.getElementById('fullscreenLetter');
+            const floatingHearts = document.getElementById('floatingHearts');
+            const sparkles = document.getElementById('sparkles');
+            
+            if (selectedIngredients.length !== 5) {
+                wrongMessage.textContent = 'Kamu harus memilih tepat 5 bahan sayangku! 💕';
+                wrongMessage.style.display = 'block';
+                setTimeout(() => {
+                    wrongMessage.style.display = 'none';
+                }, 3000);
+                return;
+            }
+            
+            const isCorrect = correctAnswers.every(answer => selectedIngredients.includes(answer));
+            
+            if (isCorrect) {
+                fullscreenLetter.classList.add('show');
+                
+                for (let i = 0; i < 40; i++) {
+                    const sparkle = document.createElement('div');
+                    sparkle.className = 'sparkle';
+                    sparkle.textContent = ['✨', '⭐', '💫', '🌟'][Math.floor(Math.random() * 4)];
+                    sparkle.style.left = Math.random() * 100 + '%';
+                    sparkle.style.top = Math.random() * 100 + '%';
+                    sparkle.style.animationDelay = Math.random() * 2 + 's';
+                    sparkles.appendChild(sparkle);
+                }
+                
+                for (let i = 0; i < 30; i++) {
+                    setTimeout(() => {
+                        const heart = document.createElement('div');
+                        heart.className = 'celebration-heart';
+                        heart.textContent = ['💕', '💖', '💗', '💝', '💓'][Math.floor(Math.random() * 5)];
+                        heart.style.left = Math.random() * 100 + '%';
+                        heart.style.animationDelay = '0s';
+                        floatingHearts.appendChild(heart);
+                        
+                        setTimeout(() => heart.remove(), 3000);
+                    }, i * 100);
+                }
+                
+            } else {
+                wrongMessage.textContent = 'Hampir! Bahan-bahan itu juga istimewa, tapi coba kombinasi lain 💕';
+                wrongMessage.style.display = 'block';
+                setTimeout(() => {
+                    wrongMessage.style.display = 'none';
+                }, 3000);
+            }
+        }
+
+        function showDetailedLetter() {
+            const fullscreenLetter = document.getElementById('fullscreenLetter');
+            const letterContainer = document.getElementById('letterContainer');
+            const letterOverlay = document.getElementById('letterOverlay');
+            
+            fullscreenLetter.classList.remove('show');
+            letterOverlay.classList.add('show');
+            
+            setTimeout(() => {
+                letterContainer.classList.add('show');
+            }, 300);
+        }
+
+        function closeLetter() {
+            const letterContainer = document.getElementById('letterContainer');
+            const letterOverlay = document.getElementById('letterOverlay');
+            
+            letterContainer.classList.remove('show');
+            letterOverlay.classList.remove('show');
+        }
+
+        createHearts();
+    </script>
+</body>
+</html>
